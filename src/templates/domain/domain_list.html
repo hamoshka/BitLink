@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<object th:include="~{fragments/header :: header}" th:remove="tag" ></object>
+<title>Domain Manager</title>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <nav  th:replace="fragments/contentHeader :: contentHeader" >
+ 
+  </nav>
+ <aside th:replace="fragments/sideMenu :: sideMenu" ></aside>
+
+  <div class="content-wrapper">
+
+    <div class="content">
+      <div class="container-fluid">
+<br>
+<br>
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">List Domains</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+			                <th>ID</th>
+			                <th>Name</th>
+			                <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                <tr th:each="domain : ${listDomains}">
+            	<td th:text="${domain.id}">Domain ID</td>
+                <td >
+                <a th:href="${domain.name}" target="_blank" th:text="${domain.name}"></a>
+                </td>
+                <td>
+                	
+                	<table>
+                <tbody>
+                <tr>
+                <td>
+                <a th:href="@{'/domain/edit/' + ${domain.id}}"  class="btn btn-block btn-primary btn-xs" >Edit</a>
+                </td>
+                <td>
+                <a th:href="@{'/domain/delete/' + ${domain.id}}" class="btn btn-block btn-success btn-xs">Delete</a>
+                </td>
+                
+                </tr>
+                </tbody>
+                </table>
+                	
+                	
+                	
+                </td>
+            </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+<br>
+      </div>
+    </div>
+  </div>
+  
+  <footer th:replace="fragments/footer :: footer">
+  </footer>
+  
+</div>
+
+<object th:include="~{fragments/footerScripts :: footerScripts}" th:remove="tag" ></object>
+
+</body>
+
+</html>
+

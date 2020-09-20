@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head >
+  
+</head>
+<body>
+
+
+ <aside class="main-sidebar sidebar-dark-primary elevation-4"   th:fragment="sideMenu"  >
+
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img th:src="@{/resources/images/user2-160x160.jpg}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block" >
+          <span  id="userName" sec:authorize="isAuthenticated()" sec:authentication="name"></span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                URL Manager
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a th:href="@{/url/list}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List URLs </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/url/new}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New URL</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+                             
+           <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Domain Manager
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a th:href="@{/domain/list}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Domains </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/domain/new}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New Domain</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+</body>
+</html>

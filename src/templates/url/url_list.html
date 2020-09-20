@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<object th:include="~{fragments/header :: header}" th:remove="tag" ></object>
+<title>URL Manager</title>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <nav  th:replace="fragments/contentHeader :: contentHeader" >
+ 
+  </nav>
+ <aside th:replace="fragments/sideMenu :: sideMenu" ></aside>
+
+  <div class="content-wrapper">
+
+    <div class="content">
+      <div class="container-fluid">
+<br>
+<br>
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">List URLs</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+			                <th>ID</th>
+			                <th>Short</th>
+			                <th>Long</th>
+			                <th>Active</th>
+			                <th>Dyn Param</th>
+			                <th>Clicks</th>
+			                <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="url : ${listURLs}">
+            	<td th:text="${url.id}">ID</td>
+                <td>
+<a th:href="${url.domain.name+'/'+url.shortUrl}" target="_blank" th:utext="${url.domain.name+'/'+url.shortUrl}"></a>
+                </td>
+                <td>
+<a th:href="${url.longUrl}" target="_blank" th:text="${url.longUrl}"></a>
+                </td>
+                <td >
+                <span th:text="@{Active}" th:if="${url.active}"></span>
+                <span th:text="@{Not Active}" th:unless="${url.active}"></span>
+                </td>
+                <td >
+                <span th:text="@{Dynamic}" th:if="${url.dynamicParams}"></span>
+                <span th:text="@{Not Dynamic}" th:unless="${url.dynamicParams}"></span>
+                </td>
+                <td th:text="${url.clicksCount}">
+                </td>
+                <td>
+                <table>
+                <tbody>
+                <tr>
+                <td>
+                <a th:href="@{'/url/edit/' + ${url.id}}"  class="btn btn-block btn-primary btn-xs" >Edit</a>
+                </td>
+                <td>
+                <a th:href="@{'/url/delete/' + ${url.id}}" class="btn btn-block btn-success btn-xs">Delete</a>
+                </td>
+                <td>
+                <button th:shorturl="${url.domain.name+'/'+url.shortUrl}"  onclick="bitLink.getQR(this);" class="btn btn-block btn-danger btn-xs" >QR</button>
+                </td>
+                <td>
+                <a th:href="@{'/url/report/' + ${url.id}}" class="btn btn-block btn-warning btn-xs">Report</a>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                	 
+                	
+                </td>
+            </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+<br>
+<br>
+      </div>
+    </div>
+  </div>
+  
+  <footer th:replace="fragments/footer :: footer">
+  </footer>
+  
+</div>
+
+<object th:include="~{fragments/footerScripts :: footerScripts}" th:remove="tag" ></object>
+
+</body>
+
+</html>
