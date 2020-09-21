@@ -23,8 +23,6 @@ _Contributions and bug reports are welcome._
 - Private statistics for shortened URLs.
 - View, edit, delete and manage your links.
 - Admin account to view, delete and ban links.
-- Ability to disable registration and anonymous link creation for private use.
-- RESTful API.
 
 ## Stack
 
@@ -40,8 +38,6 @@ _Contributions and bug reports are welcome._
 ## Setup
 
 ### Manual
-
-You need to have [Node.js](https://nodejs.org/), [PostgreSQL](https://www.postgresql.org/) and [Redis](https://redis.io/) installed.
 
 1. import the project into Eclipse workspace.
 2. use java 1.8.
