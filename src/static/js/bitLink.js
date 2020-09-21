@@ -24,7 +24,8 @@ $("#domainForm").validate();
 
  $('#urlForm').validate();
 
-
+$('#domainTable').DataTable();
+$('.dataTables_length').addClass('bs-select');
 
 });
 
