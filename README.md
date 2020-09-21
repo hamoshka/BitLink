@@ -1,27 +1,59 @@
 # BitLink
 
-# Description
-URL shortener , redirector , analytic report for each URL and QRCode for each URL and custom Domains
-
-# Installation
-1- import the project into Eclipse workspace
-2- use java 1.8
-3- use tomcat 9
-4- set the required properties in application.properties file
-5- run the project on tomcat 9 server
-
-# Usage
-at first , you have to create domain  then  go to URL Form  to create new short URL by providing the Long URL , you can choose to insert custom value for your short URL
-
-# Support
-you can contact me here on github or by email me on  ahmed_mohamed_5@hotmail.com  with email address  BITLINK
-
-# Roadmap
-working to add new features 
+**BitLink** is a modern URL shortener with support for custom domains. Shorten URLs,redirector,QRCode, manage your links and view the click rate statistics.
 
 
-# License
-No License
+_Contributions and bug reports are welcome._
 
-# Project status
-testing passed and ready for production 
+## Table of Contents
+
+- [Key Features](#key-features)
+- [Stack](#stack)
+- [Setup](#setup)
+- [Contributing](#contributing)
+
+## Key Features
+
+- Free and open source.
+- Custom domain support.
+- Custom URLs for shortened links
+- Accept dynamic parameters
+- Set description for links.
+- Expiration time for links.
+- Private statistics for shortened URLs.
+- View, edit, delete and manage your links.
+- Admin account to view, delete and ban links.
+- Ability to disable registration and anonymous link creation for private use.
+- RESTful API.
+
+## Stack
+
+- Tomcat 9 (Web server)
+- Spring boot 
+- Thymeleaf  
+- Jquery 
+- ChartJS 
+- MySql 
+- JPA 2
+- Java 1.8
+
+## Setup
+
+### Manual
+
+You need to have [Node.js](https://nodejs.org/), [PostgreSQL](https://www.postgresql.org/) and [Redis](https://redis.io/) installed.
+
+1. import the project into Eclipse workspace.
+2. use java 1.8.
+3. use tomcat 9.
+4. set the required properties in application.properties file.
+5. run the project on tomcat 9 server.
+
+
+## Contributing
+
+Pull requests are welcome. You'll probably find lots of improvements to be made.
+
+Open issues for feedback, requesting features, reporting bugs or discussing ideas.
+
+
