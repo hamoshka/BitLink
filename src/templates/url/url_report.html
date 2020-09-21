@@ -115,11 +115,21 @@
                   </div>
                   <div class="col-md-4">
                     <ul class="chart-legend clearfix">
-                      <li ><i class="far fa-circle text-danger"></i> <span th:text="${browsers[0]}"></span></li>
-                      <li ><i class="far fa-circle text-success"></i> <span th:text="${browsers[1]}"></span></li>
-                      <li ><i class="far fa-circle text-warning"></i> <span th:text="${browsers[2]}"></span></li>
-                      <li ><i class="far fa-circle text-info"></i> <span th:text="${browsers[3]}"></span></li>
-                      <li ><i class="far fa-circle text-primary"></i> <span th:text="${browsers[4]}"></span></li>
+                      <li th:if="${#lists.size(browsers) >= 1}" ><i class="far fa-circle text-danger"></i> 
+                       <span  th:text = "${browsers[0]}"></span>
+                       </li>
+                      <li th:if="${#lists.size(browsers) >= 2}"><i class="far fa-circle text-success"></i> 
+                      <span  th:text = "${browsers[1]}"></span>
+                      </li>
+                      <li th:if="${#lists.size(browsers) >= 3}"><i class="far fa-circle text-warning"></i> 
+                      <span  th:text = "${browsers[2]}"></span>
+                      </li>
+                      <li th:if="${#lists.size(browsers) >= 4}"><i class="far fa-circle text-info"></i>   
+                       <span  th:text = "${browsers[3]}"></span>
+                       </li>
+                      <li th:if="${#lists.size(browsers) >= 5}"><i class="far fa-circle text-primary"></i> 
+                      <span  th:text = "${browsers[4]}"></span>
+                      </li>
                     </ul>
                   </div>
                 </div>
