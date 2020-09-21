@@ -10,12 +10,19 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
+@Table(indexes = {
+		@Index(name ="browser_idx",unique = false,columnList = "browser" ),
+		@Index(name ="os_idx",unique = false,columnList = "os" ),
+		@Index(name ="referrer_idx",unique = false,columnList = "referrer" )
+		})
 public class Click implements Serializable {
 
 	

@@ -9,13 +9,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
+@Table(indexes = {@Index(name ="shortUrl_idx",unique = true,columnList = "shortUrl" )})
 public class Url implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,13 +27,13 @@ public class Url implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column
+	@Column(nullable = false)
 	private String longUrl;
 	
 	@Transient
 	private String customUrl;
 
-	@Column(unique = true)
+	@Column(unique = true,nullable = false)
 	private String shortUrl;
 
 	@Column

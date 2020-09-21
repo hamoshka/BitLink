@@ -9,9 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = {@Index(name ="name_idx",unique = true,columnList = "name" )})
 public class Domain  implements Serializable{
 
 	private static final long serialVersionUID = -1293456650682771260L;
@@ -20,7 +23,7 @@ public class Domain  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(unique = true)
+	@Column(unique = true,nullable = false)
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
